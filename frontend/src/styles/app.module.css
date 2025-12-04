@@ -8,23 +8,17 @@
   overflow-x: hidden;
 }
 
-/* Background pattern using CSS only */
-.app::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.06) 0%, transparent 60%),
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 60%),
-    linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%),
-    repeating-linear-gradient(
-      45deg,
-      rgba(255,255,255,0.03) 0px,
-      rgba(255,255,255,0.03) 2px,
-      transparent 2px,
-      transparent 6px
-    );
-  pointer-events: none;
-  z-index: 0;
-  mix-blend-mode: soft-light;
+.app {
+  position: relative;
+  min-height: 100vh;
+
+  background:
+    url("/src/assets/random-shapes.svg") center / cover no-repeat,
+    linear-gradient(135deg, #0a4bff 0%, #005aff 100%);
+  
+  background-blend-mode: soft-light;
+
+  color: white;
+  overflow-x: hidden;
 }
+
