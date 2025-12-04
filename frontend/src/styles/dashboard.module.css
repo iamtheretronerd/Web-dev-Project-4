@@ -1,4 +1,4 @@
-/* Dashboard.module.css - Minimal Design */
+/* Dashboard.module.css */
 .dashboardContainer {
   width: 100%;
   max-width: 1000px;
@@ -43,21 +43,17 @@
 }
 
 .newJourneyButton {
-  background: white;
-  color: black;
+  background: #32d74b;
+  color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-size: 14px;
+  padding: 10px 22px;
+  border-radius: 12px;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .newJourneyButton:hover {
-  background: black;
-  color: white;
-  transform: translateY(-1px);
+  background: #28c043;
 }
 
 /* Main Content Area */
@@ -136,25 +132,34 @@
   gap: 20px;
 }
 
-/* Journey Card */
 .journeyCard {
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  color: #111;
 }
 
 .journeyCard:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .journeyHeader {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+}
+
+.journeyCard h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #111; /* black title */
 }
 
 .journeySkill {
@@ -181,6 +186,18 @@
 
 .deleteButton:hover {
   color: #e53935;
+}
+
+.journeyMotivation {
+  color: #2563eb;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.label {
+  font-weight: 600;
+  color: #111;
 }
 
 .journeyDetails {
@@ -224,9 +241,19 @@
   transition: all 0.2s ease;
 }
 
+.continueButton {
+  background: linear-gradient(90deg, #0066ff 0%, #0050d6 100%);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  width: 100%;
+  transition: 0.2s ease;
+}
+
 .continueButton:hover {
-  background: #5a6dd8;
-  transform: translateX(2px);
+  background: linear-gradient(90deg, #1a75ff 0%, #005fff 100%);
 }
 
 /* Responsive Design */

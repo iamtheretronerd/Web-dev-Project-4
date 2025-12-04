@@ -104,7 +104,7 @@ function Dashboard({ user }) {
           )}
           <div>
             <h2 className={styles.greeting}>Welcome back, {user?.name}</h2>
-            <p className={styles.subtitle}>Continue your learning journey</p>
+            <p className={styles.subtitle}>You're doing great, keep leveling up!</p>
           </div>
         </div>
         <button
@@ -141,6 +141,27 @@ function Dashboard({ user }) {
                   >
                     ×
                   </button>
+                </div>
+                  <p className={styles.journeyMotivation}>
+                  Continue your learning journey!
+                </p>
+
+                <div className={styles.journeyDetails}>
+                  <p className={styles.journeyLevel}>
+                    <span className={styles.label}>Level:</span> {journey.level}
+                  </p>
+                  <p className={styles.journeyTime}>
+                    <span className={styles.label}>Time:</span>{" "}
+                    {journey.timeCommitment || "Not set"}
+                  </p>
+                  {journey.goal && (
+                    <p className={styles.journeyGoal}>
+                      <span className={styles.label}>Goal:</span> {journey.goal}
+                    </p>
+                  )}
+                  <p className={styles.journeyDate}>
+                    Started: {formatDate(journey.createdAt)}
+                  </p>
                 </div>
                 <div className={styles.journeyDetails}>
                   <p className={styles.journeyLevel}>

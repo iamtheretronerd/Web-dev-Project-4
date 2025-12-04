@@ -1,9 +1,11 @@
 .navbar {
-  background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: transparent;
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  padding: 16px 32px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 10;
 }
 
 .navContainer {
@@ -18,7 +20,7 @@
 .logo {
   font-size: 24px;
   font-weight: bold;
-  color: #ff0000;
+  color: #ffffff;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -52,7 +54,7 @@
 
 .navLink,
 .activeLink {
-  color: #666;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
@@ -70,8 +72,8 @@
 .logoutButton {
   padding: 8px 16px;
   background: transparent;
-  color: #666;
-  border: 2px solid #e0e0e0;
+  color: #ffffff;
+  border: 2px solid #ff5a5a;
   border-radius: 6px;
   font-weight: 500;
   cursor: pointer;
