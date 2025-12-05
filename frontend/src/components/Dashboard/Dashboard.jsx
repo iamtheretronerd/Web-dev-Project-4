@@ -139,6 +139,7 @@ function Dashboard({ user }) {
                     onClick={() => handleDeleteJourney(journey._id)}
                     className={styles.deleteButton}
                     title="Delete journey"
+                    aria-label="Delete journey"
                   >
                     ×
                   </button>

@@ -12,3 +12,31 @@
   overflow-x: hidden;
 }
 
+/* Skip link styles for accessibility */
+.skipLink {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #005aff;
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  text-decoration: none;
+  transition: top 0.2s ease;
+  border-radius: 4px;
+}
+
+.skipLink:focus {
+  top: 0;
+}
+
+/* Global focus-visible outline for interactive elements */
+:global(button:focus-visible,
+        a:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible) {
+  outline: 3px solid #0050d6;
+  outline-offset: 2px;
+}
+
