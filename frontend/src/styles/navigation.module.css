@@ -1,4 +1,6 @@
-.navbar {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+
+ .navbar {
   background: transparent;
   backdrop-filter: blur(18px) saturate(170%);
   -webkit-backdrop-filter: blur(18px) saturate(170%);
@@ -18,30 +20,35 @@
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 800;
   color: #ffffff;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .navLinks {
   display: flex;
   align-items: center;
   gap: 24px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .userInfo {
-  color: #666;
+  color: #e5e5e5;
   font-weight: 500;
   padding: 8px 12px;
-  background: #f5f5f5;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   display: flex;
   align-items: center;
   gap: 8px;
+  font-family: 'Nunito', sans-serif;
 }
 
 .profilePic {
@@ -54,14 +61,15 @@
 
 .navLink,
 .activeLink {
-  color: #ffffff;
+  color: #e0eaff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
+  font-family: 'Poppins', sans-serif;
 }
 
 .navLink:hover {
-  color: #667eea;
+  color: #aad2ff;
 }
 
 .activeLink {
