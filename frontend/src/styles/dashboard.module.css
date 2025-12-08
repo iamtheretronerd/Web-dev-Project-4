@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap");
 
 .dashboardContainer {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
+  box-sizing: border-box;
 }
 
 /* Header Section */
@@ -36,14 +37,14 @@
   color: #ffffff;
   font-weight: 600;
   margin: 0 0 4px 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .subtitle {
   font-size: 14px;
   color: #d0e1ff;
   margin: 0;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .newJourneyButton {
@@ -53,12 +54,14 @@
   padding: 10px 22px;
   border-radius: 12px;
   font-weight: 600;
+  cursor: pointer;
   transition: 0.2s ease;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .newJourneyButton:hover {
   background: #28c043;
+  transform: translateY(-1px);
 }
 
 /* Main Content Area */
@@ -87,11 +90,11 @@
 /* Empty State */
 .emptyState {
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 60px 40px;
   text-align: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  font-family: 'Nunito', sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: "Nunito", sans-serif;
 }
 
 .emptyIcon {
@@ -104,14 +107,14 @@
   color: #0a2463;
   font-weight: 600;
   margin: 0 0 12px 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .emptyText {
   font-size: 14px;
   color: #666;
   margin: 0 0 24px 0;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   max-width: 300px;
   margin-left: auto;
   margin-right: auto;
@@ -127,7 +130,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .createButton:hover {
@@ -138,55 +141,52 @@
 /* Journey Grid */
 .journeyGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 40px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
 }
 
 .journeyCard {
   background: #ffffff;
-  border-radius: 18px;
-  padding: 22px;
+  border-radius: 14px;
+  padding: 18px;
   width: 100%;
-  max-width: 420px;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  max-width: 320px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   color: #111;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .journeyCard:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
 
 .journeyHeader {
   display: flex;
   justify-content: space-between;
-  align-items: start;
-  margin-bottom: 14px;
-}
-
-.journeyCard h2 {
-  margin: 0;
-  font-size: 26px;
-  font-weight: 700;
-  color: #111; /* black title */
+  align-items: flex-start;
+  margin-bottom: 10px;
 }
 
 .journeySkill {
-  font-size: 20px;
+  font-size: 18px;
   color: #0a2463;
   font-weight: 600;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.3;
+  flex: 1;
+  padding-right: 8px;
 }
 
 .deleteButton {
   background: transparent;
   border: none;
   color: #999;
-  font-size: 24px;
+  font-size: 22px;
   cursor: pointer;
   padding: 0;
   width: 24px;
@@ -195,6 +195,7 @@
   align-items: center;
   justify-content: center;
   transition: color 0.2s ease;
+  flex-shrink: 0;
 }
 
 .deleteButton:hover {
@@ -203,30 +204,30 @@
 
 .journeyMotivation {
   color: #2563eb;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  margin-bottom: 12px;
-  font-family: 'Nunito', sans-serif;
+  margin: 0 0 10px 0;
+  font-family: "Nunito", sans-serif;
 }
 
 .journeyDetails {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .journeyLevel,
 .journeyTime,
 .journeyGoal,
 .journeyDate {
-  font-size: 14px;
+  font-size: 13px;
   color: #555;
-  margin: 8px 0;
-  font-family: 'Nunito', sans-serif;
+  margin: 6px 0;
+  font-family: "Nunito", sans-serif;
 }
 
 .label {
   font-weight: 600;
   color: #0a2463;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .journeyGoal {
@@ -234,10 +235,9 @@
 }
 
 .journeyDate {
-  font-size: 12px;
+  font-size: 11px;
   color: #888;
-  margin-top: 12px;
-  font-family: 'Nunito', sans-serif;
+  margin-top: 10px;
 }
 
 .continueButton {
@@ -245,40 +245,287 @@
   background: linear-gradient(90deg, #0066ff 0%, #0050d6 100%);
   color: white;
   border: none;
-  padding: 12px;
-  border-radius: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
   font-weight: 600;
+  cursor: pointer;
   transition: 0.2s ease;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .continueButton:hover {
   background: linear-gradient(90deg, #1a75ff 0%, #005fff 100%);
+  transform: translateY(-1px);
 }
 
 /* Responsive Design */
+
+/* Large tablets */
+@media (max-width: 900px) {
+  .dashboardContainer {
+    padding: 32px 20px;
+  }
+
+  .journeyGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .journeyCard {
+    max-width: 100%;
+  }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
+  .dashboardContainer {
+    padding: 24px 16px;
+  }
+
   .header {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
   }
 
+  .userSection {
+    width: 100%;
+  }
+
   .newJourneyButton {
-    align-self: stretch;
+    width: 100%;
+    text-align: center;
+    padding: 12px 22px;
+  }
+
+  .greeting {
+    font-size: 22px;
+  }
+
+  .journeyGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .journeyCard {
+    padding: 16px;
+  }
+
+  .emptyState {
+    padding: 40px 24px;
+  }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 640px) {
+  .dashboardContainer {
+    padding: 20px 14px;
+  }
+
+  .header {
+    margin-bottom: 28px;
+  }
+
+  .userSection {
+    gap: 14px;
+  }
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .greeting {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 13px;
   }
 
   .journeyGrid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
-}
 
-@media (max-width: 640px) {
-  .dashboardContainer {
-    padding: 20px 16px;
+  .journeyCard {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .journeySkill {
+    font-size: 17px;
+  }
+
+  .mainContent {
+    min-height: 300px;
   }
 
   .emptyState {
-    padding: 40px 20px;
+    padding: 36px 20px;
+  }
+
+  .emptyIcon {
+    font-size: 40px;
+  }
+
+  .emptyTitle {
+    font-size: 18px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .dashboardContainer {
+    padding: 16px 12px;
+  }
+
+  .header {
+    margin-bottom: 24px;
+    gap: 16px;
+  }
+
+  .userSection {
+    gap: 12px;
+  }
+
+  .avatar {
+    width: 44px;
+    height: 44px;
+    border-width: 2px;
+  }
+
+  .greeting {
+    font-size: 18px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .newJourneyButton {
+    padding: 11px 18px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  .journeyGrid {
+    gap: 14px;
+  }
+
+  .journeyCard {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .journeyHeader {
+    margin-bottom: 8px;
+  }
+
+  .journeySkill {
+    font-size: 16px;
+  }
+
+  .deleteButton {
+    font-size: 20px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .journeyMotivation {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .journeyDetails {
+    margin-bottom: 14px;
+  }
+
+  .journeyLevel,
+  .journeyTime,
+  .journeyGoal {
+    font-size: 12px;
+    margin: 5px 0;
+  }
+
+  .journeyDate {
+    font-size: 10px;
+    margin-top: 8px;
+  }
+
+  .continueButton {
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  .emptyState {
+    padding: 32px 16px;
+    border-radius: 10px;
+  }
+
+  .emptyIcon {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  .emptyTitle {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .emptyText {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .createButton {
+    padding: 11px 24px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  .loading {
+    padding: 40px 16px;
+    font-size: 14px;
+  }
+
+  .error {
+    padding: 14px;
+    font-size: 13px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .dashboardContainer {
+    padding: 14px 10px;
+  }
+
+  .greeting {
+    font-size: 16px;
+  }
+
+  .subtitle {
+    font-size: 11px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .journeyCard {
+    padding: 12px;
+  }
+
+  .journeySkill {
+    font-size: 15px;
+  }
+
+  .continueButton {
+    padding: 9px;
+    font-size: 12px;
   }
 }

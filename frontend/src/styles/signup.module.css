@@ -1,10 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap");
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skipLinks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  display: flex;
+  gap: 8px;
+}
+
+.skipLink {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  background: #0066ff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  z-index: 99999;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.skipLink:focus {
+  transform: translateY(0);
+  outline: 3px solid #ffcc00;
+  outline-offset: 2px;
+}
+
+.skipLink:nth-child(2) {
+  left: 240px;
+}
+
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .authContainer {
   width: 100%;
-  max-width: 400px;
+  max-width: 440px;
   margin: 0 auto;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 .authCard {
@@ -17,18 +73,18 @@
 .title {
   font-size: 28px;
   color: #0a2463;
-  margin-bottom: 8px;
+  margin: 0 0 8px 0;
   text-align: center;
   font-weight: 700;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .subtitle {
   color: #555;
   text-align: center;
-  margin-bottom: 32px;
+  margin: 0 0 32px 0;
   font-size: 15px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .form {
@@ -38,13 +94,18 @@
 }
 
 .error {
-  background: #ffeef1;
+  background: #ffebee;
   color: #c62828;
   padding: 12px;
   border-radius: 6px;
   font-size: 14px;
-  border: 1px solid #f8b6c5;
+  border: 2px solid #c62828;
   text-align: center;
+}
+
+.error:focus {
+  outline: 3px solid #c62828;
+  outline-offset: 2px;
 }
 
 .inputGroup {
@@ -57,7 +118,8 @@
   font-size: 14px;
   font-weight: 600;
   color: #444;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
 }
 
 .inputGroup input {
@@ -65,21 +127,93 @@
   border: 2px solid #e0e0e0;
   border-radius: 6px;
   font-size: 16px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   background: #fafafa;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
+}
+
+.inputGroup input:hover:not(:focus) {
+  border-color: #bdbdbd;
 }
 
 .inputGroup input:focus {
   outline: none;
   border-color: #0066ff;
   background: white;
-  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+}
+
+.inputGroup input:focus-visible {
+  outline: 3px solid #0066ff;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.inputGroup input[aria-invalid="true"] {
+  border-color: #c62828;
+}
+
+.inputGroup input[aria-invalid="true"]:focus {
+  border-color: #c62828;
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.15);
+}
+
+.inputGroup input[aria-invalid="true"]:focus-visible {
+  outline-color: #c62828;
 }
 
 .inputGroup input::placeholder {
   color: #777;
   font-size: 14px;
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordWrapper input {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.togglePassword {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 2px solid transparent;
+  padding: 6px;
+  cursor: pointer;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+}
+
+.togglePassword:hover {
+  color: #0066ff;
+  background: rgba(0, 102, 255, 0.1);
+}
+
+.togglePassword:focus {
+  outline: none;
+  color: #0066ff;
+  background: rgba(0, 102, 255, 0.1);
+}
+
+.togglePassword:focus-visible {
+  outline: 3px solid #0066ff;
+  outline-offset: 2px;
+  background: transparent;
+}
+
+.togglePassword[aria-pressed="true"] {
+  color: #0066ff;
 }
 
 .submitButton {
@@ -91,9 +225,10 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   margin-top: 8px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  position: relative;
 }
 
 .submitButton:hover:not(:disabled) {
@@ -101,14 +236,45 @@
   box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
 }
 
+.submitButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.3);
+}
+
+.submitButton:focus-visible {
+  outline: 3px solid #ffcc00;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
 .submitButton:active:not(:disabled) {
   transform: translateY(0);
 }
 
 .submitButton:disabled {
-  opacity: 0.6;
+  opacity: 0.7;
   cursor: not-allowed;
   transform: none;
+}
+
+.submitButton[aria-busy="true"]::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: buttonSpinner 0.8s linear infinite;
+}
+
+@keyframes buttonSpinner {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
 }
 
 .switchText {
@@ -122,16 +288,111 @@
   color: #0066ff;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: all 0.2s ease;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
 }
 
 .switchText a:hover {
-  color: #1a75ff;
+  color: #0050d6;
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* Responsive design */
+.switchText a:focus {
+  outline: none;
+  background: rgba(0, 102, 255, 0.1);
+}
+
+.switchText a:focus-visible {
+  outline: 3px solid #0066ff;
+  outline-offset: 2px;
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .submitButton:hover:not(:disabled) {
+    transform: none;
+  }
+
+  .submitButton[aria-busy="true"]::after {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .inputGroup input {
+    border-width: 3px;
+  }
+
+  .inputGroup input:focus-visible {
+    outline-width: 4px;
+  }
+
+  .submitButton {
+    border: 2px solid white;
+  }
+
+  .submitButton:focus-visible {
+    outline-width: 4px;
+  }
+
+  .error {
+    border-width: 3px;
+  }
+
+  .togglePassword:focus-visible {
+    outline-width: 4px;
+  }
+}
+
+@media (forced-colors: active) {
+  .submitButton {
+    border: 2px solid ButtonText;
+  }
+
+  .submitButton:disabled {
+    border-color: GrayText;
+    color: GrayText;
+  }
+
+  .inputGroup input {
+    border: 2px solid ButtonText;
+  }
+
+  .togglePassword {
+    border: 2px solid ButtonText;
+  }
+
+  .error {
+    border: 2px solid;
+    forced-color-adjust: none;
+    background: Mark;
+    color: MarkText;
+  }
+}
+
+@media (max-width: 768px) {
+  .skipLink:nth-child(2):focus {
+    left: 16px;
+    top: 48px;
+  }
+}
+
 @media (max-width: 480px) {
+  .authContainer {
+    padding: 24px 16px;
+  }
+
   .authCard {
     padding: 30px 20px;
   }
@@ -141,6 +402,16 @@
   }
 
   .subtitle {
+    font-size: 14px;
+  }
+
+  .inputGroup input {
+    padding: 12px;
+    padding-right: 48px;
+  }
+
+  .skipLink {
+    padding: 10px 16px;
     font-size: 14px;
   }
 }

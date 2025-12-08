@@ -2,7 +2,6 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import styles from "../../styles/game.module.css";
 
-// Standardize env var (Vite)
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 function Game() {
@@ -17,8 +16,8 @@ function Game() {
   const [error, setError] = useState("");
   const [selectedDifficulty, setSelectedDifficulty] = useState(null);
   const [levelNumber, setLevelNumber] = useState(1);
+  const [showTooltip, setShowTooltip] = useState(false);
 
-  // StrictMode double-invoke guard
   const initRef = useRef(false);
 
   const generateNewLevel = useCallback(
@@ -87,7 +86,6 @@ function Game() {
   }, [journeyId, generateNewLevel]);
 
   useEffect(() => {
-    // Prevent StrictMode's double effect in dev
     if (initRef.current) return;
     initRef.current = true;
     if (journeyId) loadJourneyAndLevel();
@@ -201,10 +199,58 @@ function Game() {
         {error && <div className={styles.errorMessage}>{error}</div>}
 
         <div className={styles.completionSection}>
-          <h3 className={styles.completionTitle}>
-            How difficult was this task?
-          </h3>
-          <div className={styles.difficultyButtons}>
+          <div className={styles.completionHeader}>
+            <h3 className={styles.completionTitle}>
+              How difficult was this task?
+            </h3>
+            <div className={styles.tooltipWrapper}>
+              <button
+                type="button"
+                className={styles.infoButton}
+                onMouseEnter={() => setShowTooltip(true)}
+                onMouseLeave={() => setShowTooltip(false)}
+                onFocus={() => setShowTooltip(true)}
+                onBlur={() => setShowTooltip(false)}
+                aria-label="Why we ask about difficulty"
+                aria-expanded={showTooltip}
+                aria-describedby="difficulty-tooltip"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+              </button>
+              {showTooltip && (
+                <div
+                  id="difficulty-tooltip"
+                  className={styles.tooltip}
+                  role="tooltip"
+                >
+                  Your feedback helps the AI adapt future challenges to match
+                  your skill level, keeping you in the optimal learning zone.
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div
+            className={styles.difficultyButtons}
+            role="radiogroup"
+            aria-label="Difficulty rating"
+          >
             {difficultyOptions.map((option) => (
               <button
                 key={option.value}
@@ -213,17 +259,22 @@ function Game() {
                   selectedDifficulty === option.value ? styles.selected : ""
                 }`}
                 disabled={submitting}
+                role="radio"
+                aria-checked={selectedDifficulty === option.value}
+                aria-label={`${option.label} difficulty`}
               >
-                <span className={styles.emoji}>{option.emoji}</span>
-                <span className={styles.label}>{option.label}</span>
+                <span className={styles.emoji} aria-hidden="true">
+                  {option.emoji}
+                </span>
+                <span className={styles.difficultyLabel}>{option.label}</span>
               </button>
             ))}
           </div>
-
           <button
             onClick={handleCompleteLevel}
             disabled={!selectedDifficulty || submitting}
             className={styles.completeButton}
+            aria-busy={submitting}
           >
             {submitting
               ? "Generating next level..."
@@ -233,9 +284,23 @@ function Game() {
 
         <div className={styles.footer}>
           <div className={styles.journeyInfo}>
-            <span>📚 {journey?.level}</span>
-            <span>⏱️ {journey?.timeCommitment}</span>
-            {journey?.goal && <span>🎯 {journey?.goal}</span>}
+            <span>
+              <span aria-hidden="true">📚</span>
+              <span className={styles.srOnly}>Level: </span>
+              {journey?.level}
+            </span>
+            <span>
+              <span aria-hidden="true">⏱️</span>
+              <span className={styles.srOnly}>Time commitment: </span>
+              {journey?.timeCommitment}
+            </span>
+            {journey?.goal && (
+              <span>
+                <span aria-hidden="true">🎯</span>
+                <span className={styles.srOnly}>Goal: </span>
+                {journey?.goal}
+              </span>
+            )}
           </div>
         </div>
       </div>

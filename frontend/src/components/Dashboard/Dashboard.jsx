@@ -23,7 +23,7 @@ function Dashboard({ user }) {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       );
 
       const data = await response.json();
@@ -104,7 +104,9 @@ function Dashboard({ user }) {
           )}
           <div>
             <h2 className={styles.greeting}>Welcome back, {user?.name}</h2>
-            <p className={styles.subtitle}>You're doing great, keep leveling up!</p>
+            <p className={styles.subtitle}>
+              You're doing great, keep leveling up!
+            </p>
           </div>
         </div>
 
@@ -144,10 +146,6 @@ function Dashboard({ user }) {
                     ×
                   </button>
                 </div>
-
-                <p className={styles.journeyMotivation}>
-                  Continue your learning journey!
-                </p>
 
                 <div className={styles.journeyDetails}>
                   <p className={styles.journeyLevel}>

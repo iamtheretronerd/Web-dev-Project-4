@@ -1,164 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap");
 
-/* Container for the authentication page */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skipLinks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  display: flex;
+  gap: 8px;
+}
+
+.skipLink {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  background: #0066ff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  z-index: 99999;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.skipLink:focus {
+  transform: translateY(0);
+  outline: 3px solid #ffcc00;
+  outline-offset: 2px;
+}
+
+.skipLink:nth-child(2) {
+  left: 220px;
+}
+
+.skipLink:nth-child(2):focus {
+  left: 200px;
+}
+
 .authContainer {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
 }
 
-.authCard {
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-}
-
-.title {
-  font-size: 28px;
-  color: #0a2463;
-  margin-bottom: 8px;
-  text-align: center;
-  font-weight: 700;
-  font-family: 'Poppins', sans-serif;
-}
-
-.subtitle {
-  color: #555;
-  text-align: center;
-  margin-bottom: 32px;
-  font-size: 15px;
-  font-family: 'Nunito', sans-serif;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.error {
-  background: #ffeef1;
-  color: #c62828;
-  padding: 12px;
-  border-radius: 6px;
-  font-size: 14px;
-  border: 1px solid #f8b6c5;
-  text-align: center;
-}
-
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.inputGroup label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #444;
-  font-family: 'Poppins', sans-serif;
-}
-
-.inputGroup input {
-  padding: 12px;
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  background: #fafafa;
-  font-family: 'Nunito', sans-serif;
-}
-
-.inputGroup input:focus {
-  outline: none;
-  border-color: #0066ff;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
-}
-
-.inputGroup input::placeholder {
-  color: #777;
-  font-size: 14px;
-}
-
-.submitButton {
-  padding: 14px;
-  background: linear-gradient(90deg, #0066ff 0%, #0050d6 100%);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 8px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.submitButton:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
-}
-
-.submitButton:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-.submitButton:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.switchText {
-  text-align: center;
-  margin-top: 24px;
-  color: #666;
-  font-size: 14px;
-}
-
-.switchText a {
-  color: #0066ff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.switchText a:hover {
-  color: #1a75ff;
-  text-decoration: underline;
-}
-
-/* Responsive design */
-
-@media (max-width: 480px) {
-  .authCard {
-    padding: 30px 20px;
-  }
-
-  .title {
-    font-size: 24px;
-  }
-
-  .subtitle {
-    font-size: 14px;
-  }
-}
-
-/* Split Screen Container */
 .splitContainer {
-  display: flex;
   min-height: 100vh;
   width: 100%;
+  position: relative;
 }
 
 .heroSection {
-  flex: 1;
+  width: 60%;
+  margin-right: 40%;
   background: linear-gradient(135deg, #0a4bff 0%, #005aff 100%);
   color: white;
-  overflow-y: auto;
   padding: 60px 40px;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .heroContent {
@@ -176,7 +88,7 @@
   font-weight: 800;
   margin: 0 0 8px 0;
   letter-spacing: 2px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .heroTagline {
@@ -184,7 +96,7 @@
   opacity: 0.9;
   margin: 0;
   font-weight: 300;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .heroMain {
@@ -197,7 +109,7 @@
   line-height: 1.2;
   margin: 0 0 24px 0;
   font-weight: 800;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .heroDescription {
@@ -206,10 +118,9 @@
   opacity: 0.95;
   margin: 0;
   font-weight: 300;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
-/* What We Do Section */
 .whatWeDoSection {
   margin-bottom: 60px;
   animation: fadeInUp 0.8s ease 0.4s both;
@@ -219,6 +130,7 @@
   font-size: 32px;
   margin: 0 0 32px 0;
   font-weight: 700;
+  font-family: "Poppins", sans-serif;
 }
 
 .benefitItem {
@@ -231,7 +143,8 @@
   transition: all 0.3s ease;
 }
 
-.benefitItem:hover {
+.benefitItem:hover,
+.benefitItem:focus-within {
   background: rgba(255, 255, 255, 0.15);
   transform: translateX(8px);
 }
@@ -240,6 +153,7 @@
   font-size: 20px;
   margin: 0 0 12px 0;
   font-weight: 600;
+  font-family: "Poppins", sans-serif;
 }
 
 .benefitItem p {
@@ -247,9 +161,9 @@
   margin: 0;
   opacity: 0.9;
   line-height: 1.6;
+  font-family: "Nunito", sans-serif;
 }
 
-/* Why Section */
 .whySection {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -265,6 +179,7 @@
   line-height: 1.7;
   margin: 0;
   opacity: 0.95;
+  font-family: "Nunito", sans-serif;
 }
 
 .heroFooter {
@@ -273,20 +188,22 @@
   font-size: 14px;
   padding-top: 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: "Nunito", sans-serif;
 }
 
-/* Right Side - Login Section (Fixed) */
 .loginSection {
-  flex: 1;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 40%;
+  height: 100vh;
   background: #f8f9fa;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px;
-  position: sticky;
-  top: 0;
-  height: 100vh;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .loginContainer {
@@ -308,6 +225,7 @@
   margin: 0 0 8px 0;
   text-align: center;
   font-weight: 700;
+  font-family: "Poppins", sans-serif;
 }
 
 .subtitle {
@@ -315,6 +233,7 @@
   text-align: center;
   margin: 0 0 40px 0;
   font-size: 15px;
+  font-family: "Nunito", sans-serif;
 }
 
 .form {
@@ -329,8 +248,14 @@
   padding: 14px;
   border-radius: 8px;
   font-size: 14px;
-  border: 1px solid #ffcdd2;
+  border: 2px solid #c62828;
   text-align: center;
+  font-family: "Nunito", sans-serif;
+}
+
+.error:focus {
+  outline: 3px solid #c62828;
+  outline-offset: 2px;
 }
 
 .inputGroup {
@@ -343,6 +268,8 @@
   font-size: 14px;
   font-weight: 600;
   color: #555;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
 }
 
 .inputGroup input {
@@ -350,20 +277,93 @@
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-size: 16px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   background: #fafafa;
+  font-family: "Nunito", sans-serif;
+}
+
+.inputGroup input:hover:not(:focus) {
+  border-color: #bdbdbd;
 }
 
 .inputGroup input:focus {
   outline: none;
   border-color: #0066ff;
   background: white;
-  box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+  box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.15);
+}
+
+.inputGroup input:focus-visible {
+  outline: 3px solid #0066ff;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.inputGroup input[aria-invalid="true"] {
+  border-color: #c62828;
+}
+
+.inputGroup input[aria-invalid="true"]:focus {
+  border-color: #c62828;
+  box-shadow: 0 0 0 4px rgba(198, 40, 40, 0.15);
+}
+
+.inputGroup input[aria-invalid="true"]:focus-visible {
+  outline-color: #c62828;
 }
 
 .inputGroup input::placeholder {
   color: #999;
   font-size: 14px;
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordWrapper input {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.togglePassword {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 2px solid transparent;
+  padding: 6px;
+  cursor: pointer;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+}
+
+.togglePassword:hover {
+  color: #0066ff;
+  background: rgba(0, 102, 255, 0.1);
+}
+
+.togglePassword:focus {
+  outline: none;
+  color: #0066ff;
+  background: rgba(0, 102, 255, 0.1);
+}
+
+.togglePassword:focus-visible {
+  outline: 3px solid #0066ff;
+  outline-offset: 2px;
+  background: transparent;
+}
+
+.togglePassword[aria-pressed="true"] {
+  color: #0066ff;
 }
 
 .submitButton {
@@ -375,8 +375,10 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   margin-top: 8px;
+  font-family: "Poppins", sans-serif;
+  position: relative;
 }
 
 .submitButton:hover:not(:disabled) {
@@ -384,14 +386,45 @@
   box-shadow: 0 8px 24px rgba(0, 102, 255, 0.4);
 }
 
+.submitButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.3);
+}
+
+.submitButton:focus-visible {
+  outline: 3px solid #ffcc00;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
 .submitButton:active:not(:disabled) {
   transform: translateY(0);
 }
 
 .submitButton:disabled {
-  opacity: 0.6;
+  opacity: 0.7;
   cursor: not-allowed;
   transform: none;
+}
+
+.submitButton[aria-busy="true"]::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: buttonSpinner 0.8s linear infinite;
+}
+
+@keyframes buttonSpinner {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
 }
 
 .switchText {
@@ -399,21 +432,36 @@
   margin-top: 32px;
   color: #666;
   font-size: 15px;
+  font-family: "Nunito", sans-serif;
 }
 
 .switchText a {
   color: #0066ff;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: all 0.2s ease;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
 }
 
 .switchText a:hover {
-  color: #1a75ff;
+  color: #0050d6;
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* Animations */
+.switchText a:focus {
+  outline: none;
+  background: rgba(0, 102, 255, 0.1);
+}
+
+.switchText a:focus-visible {
+  outline: 3px solid #0066ff;
+  outline-offset: 2px;
+  background: transparent;
+}
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -445,76 +493,319 @@
   }
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
+@media (prefers-reduced-motion: reduce) {
+  .heroHeader,
+  .heroMain,
+  .whatWeDoSection,
+  .whySection,
+  .loginContainer {
+    animation: none;
+  }
+
+  .benefitItem:hover,
+  .benefitItem:focus-within {
+    transform: none;
+  }
+
+  .submitButton:hover:not(:disabled) {
+    transform: none;
+  }
+
+  .submitButton[aria-busy="true"]::after {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .inputGroup input {
+    border-width: 3px;
+  }
+
+  .inputGroup input:focus,
+  .inputGroup input:focus-visible {
+    outline-width: 4px;
+  }
+
+  .submitButton {
+    border: 2px solid white;
+  }
+
+  .submitButton:focus-visible {
+    outline-width: 4px;
+  }
+
+  .error {
+    border-width: 3px;
+  }
+
+  .togglePassword {
+    border-width: 2px;
+  }
+
+  .togglePassword:focus-visible {
+    border-color: #0066ff;
+  }
+
+  .skipLink:focus {
+    outline-width: 4px;
+  }
+}
+
+@media (forced-colors: active) {
+  .submitButton {
+    border: 2px solid ButtonText;
+  }
+
+  .submitButton:disabled {
+    border-color: GrayText;
+    color: GrayText;
+  }
+
+  .inputGroup input {
+    border: 2px solid ButtonText;
+  }
+
+  .togglePassword {
+    border: 2px solid ButtonText;
+  }
+
+  .error {
+    border: 2px solid;
+    forced-color-adjust: none;
+    background: Mark;
+    color: MarkText;
+  }
+}
+
+@media (max-width: 1200px) {
+  .heroSection {
+    width: 55%;
+    margin-right: 45%;
+    padding: 50px 30px;
+  }
+
+  .loginSection {
+    width: 45%;
+    padding: 30px;
+  }
+
   .heroTitle {
     font-size: 48px;
+  }
+
+  .authCard {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    width: 50%;
+    margin-right: 50%;
+    padding: 40px 24px;
+  }
+
+  .loginSection {
+    width: 50%;
+    padding: 24px;
+  }
+
+  .heroTitle {
+    font-size: 42px;
+  }
+
+  .heroDescription {
+    font-size: 18px;
+  }
+
+  .heroHeader {
+    margin-bottom: 60px;
+  }
+
+  .heroMain {
+    margin-bottom: 60px;
+  }
+
+  .sectionTitle {
+    font-size: 28px;
+  }
+
+  .authCard {
+    padding: 32px;
+  }
+
+  .title {
+    font-size: 28px;
   }
 }
 
 @media (max-width: 768px) {
+  .skipLink:focus {
+    left: 16px;
+  }
+
+  .skipLink:nth-child(2):focus {
+    left: 16px;
+    top: 48px;
+  }
+
   .splitContainer {
+    display: flex;
     flex-direction: column;
   }
-  
+
   .heroSection {
+    width: 100%;
+    margin-right: 0;
     padding: 40px 24px;
+    min-height: auto;
   }
-  
+
   .loginSection {
     position: relative;
+    width: 100%;
     height: auto;
-    min-height: 100vh;
+    min-height: auto;
     padding: 40px 24px;
   }
-  
+
+  .heroHeader {
+    margin-bottom: 40px;
+  }
+
+  .heroMain {
+    margin-bottom: 40px;
+  }
+
   .heroTitle {
-    font-size: 40px;
+    font-size: 36px;
   }
-  
+
   .heroDescription {
-    font-size: 18px;
+    font-size: 16px;
   }
-  
+
+  .whatWeDoSection {
+    margin-bottom: 40px;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .benefitItem {
+    padding: 20px;
+  }
+
+  .benefitItem:hover,
+  .benefitItem:focus-within {
+    transform: none;
+  }
+
+  .whySection {
+    padding: 24px;
+    margin-bottom: 40px;
+  }
+
+  .whyText {
+    font-size: 16px;
+  }
+
   .authCard {
     padding: 32px 24px;
   }
-  
-  .sectionTitle {
-    font-size: 28px;
+
+  .title {
+    font-size: 26px;
   }
-  
-  .benefitItem {
-    padding: 24px;
+
+  .subtitle {
+    margin-bottom: 32px;
   }
-  
-  .whySection {
-    padding: 32px 24px;
+
+  .form {
+    gap: 20px;
   }
 }
 
 @media (max-width: 480px) {
+  .heroSection {
+    padding: 32px 16px;
+  }
+
+  .loginSection {
+    padding: 32px 16px;
+  }
+
+  .heroLogo {
+    font-size: 28px;
+  }
+
   .heroTitle {
-    font-size: 32px;
+    font-size: 28px;
   }
-  
+
   .heroDescription {
-    font-size: 16px;
+    font-size: 15px;
   }
-  
+
+  .sectionTitle {
+    font-size: 22px;
+  }
+
   .benefitItem {
-    padding: 20px;
+    padding: 16px;
   }
-  
+
   .benefitItem h4 {
     font-size: 18px;
   }
-  
+
   .benefitItem p {
+    font-size: 14px;
+  }
+
+  .whySection {
+    padding: 20px;
+  }
+
+  .whyText {
     font-size: 15px;
   }
-  
-  .whyText {
-    font-size: 16px;
+
+  .authCard {
+    padding: 24px 16px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .inputGroup input {
+    padding: 12px;
+    padding-right: 48px;
+  }
+
+  .submitButton {
+    padding: 14px;
+  }
+
+  .skipLink {
+    padding: 10px 16px;
+    font-size: 14px;
   }
 }

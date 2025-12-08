@@ -1,18 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap");
 
 .app {
   position: relative;
   min-height: 100vh;
-  background: 
-    url("/src/assets/random-shapes.svg") center / cover no-repeat,
-    linear-gradient(135deg, #0a4bff 0%, #005aff 100%);
-  background-blend-mode: soft-light;
+  background: linear-gradient(135deg, #0a4bff 0%, #005aff 100%);
   color: white;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   overflow-x: hidden;
 }
 
-/* Skip link styles for accessibility */
+.app::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/src/assets/random-shapes.svg") center / cover no-repeat;
+  opacity: 0.08;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.app > * {
+  position: relative;
+  z-index: 1;
+}
+
 .skipLink {
   position: absolute;
   top: -40px;
@@ -31,12 +45,13 @@
 }
 
 /* Global focus-visible outline for interactive elements */
-:global(button:focus-visible,
-        a:focus-visible,
-        input:focus-visible,
-        textarea:focus-visible,
-        select:focus-visible) {
+:global(
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible
+) {
   outline: 3px solid #0050d6;
   outline-offset: 2px;
 }
-

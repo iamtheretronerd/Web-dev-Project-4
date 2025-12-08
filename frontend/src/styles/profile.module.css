@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap");
 
 /* Container for the profile page */
 .profileContainer {
@@ -6,7 +6,7 @@
   max-width: 500px;
   margin: 40px auto;
   padding: 20px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .profileCard {
@@ -35,7 +35,7 @@
   color: #0a2463;
   font-weight: 600;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .form {
@@ -76,7 +76,7 @@
   font-size: 14px;
   font-weight: 600;
   color: #444;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .inputGroup input {
@@ -86,7 +86,7 @@
   font-size: 16px;
   transition: all 0.3s ease;
   background: #fafafa;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .inputGroup input:focus {
@@ -125,7 +125,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   border: none;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .editButton {

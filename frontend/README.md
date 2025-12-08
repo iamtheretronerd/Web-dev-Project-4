@@ -1,4 +1,4 @@
-# OLD VER README UPDATE *
+# OLD VER README UPDATE \*
 
 # Web-dev-Project-3 — Frontend
 
